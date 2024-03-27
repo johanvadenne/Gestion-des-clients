@@ -28,87 +28,106 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrFenetre));
-            toolStrip1 = new ToolStrip();
-            toolStripButton1 = new ToolStripButton();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
-            toolStrip1.SuspendLayout();
-            tabControl1.SuspendLayout();
+            CB_Client = new ComboBox();
+            LB_Fenetre = new ListBox();
+            L_Client = new Label();
+            NUP_Hauteur = new NumericUpDown();
+            NUP_Largeur = new NumericUpDown();
+            L_Hauteur = new Label();
+            L_Largeur = new Label();
+            ((System.ComponentModel.ISupportInitialize)NUP_Hauteur).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NUP_Largeur).BeginInit();
             SuspendLayout();
             // 
-            // toolStrip1
+            // CB_Client
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1 });
-            toolStrip1.Location = new Point(0, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(800, 25);
-            toolStrip1.TabIndex = 0;
-            toolStrip1.Text = "toolStrip1";
+            CB_Client.FormattingEnabled = true;
+            CB_Client.Location = new Point(59, 31);
+            CB_Client.Name = "CB_Client";
+            CB_Client.Size = new Size(121, 23);
+            CB_Client.TabIndex = 0;
+            CB_Client.SelectedIndexChanged += CB_Client_SelectedIndexChanged;
             // 
-            // toolStripButton1
+            // LB_Fenetre
             // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(23, 22);
-            toolStripButton1.Text = "Ajout";
-            toolStripButton1.Click += toolStripButton1_Click;
+            LB_Fenetre.FormattingEnabled = true;
+            LB_Fenetre.ItemHeight = 15;
+            LB_Fenetre.Location = new Point(226, 31);
+            LB_Fenetre.Name = "LB_Fenetre";
+            LB_Fenetre.Size = new Size(203, 244);
+            LB_Fenetre.TabIndex = 1;
+            LB_Fenetre.SelectedIndexChanged += LB_Fenetre_SelectedIndexChanged;
             // 
-            // tabControl1
+            // L_Client
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(12, 28);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(776, 410);
-            tabControl1.TabIndex = 1;
+            L_Client.AutoSize = true;
+            L_Client.Location = new Point(15, 34);
+            L_Client.Name = "L_Client";
+            L_Client.Size = new Size(38, 15);
+            L_Client.TabIndex = 2;
+            L_Client.Text = "Client";
             // 
-            // tabPage1
+            // NUP_Hauteur
             // 
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(768, 382);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
+            NUP_Hauteur.Location = new Point(59, 76);
+            NUP_Hauteur.Name = "NUP_Hauteur";
+            NUP_Hauteur.Size = new Size(53, 23);
+            NUP_Hauteur.TabIndex = 6;
             // 
-            // tabPage2
+            // NUP_Largeur
             // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(192, 72);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            NUP_Largeur.Location = new Point(59, 120);
+            NUP_Largeur.Name = "NUP_Largeur";
+            NUP_Largeur.Size = new Size(53, 23);
+            NUP_Largeur.TabIndex = 7;
+            // 
+            // L_Hauteur
+            // 
+            L_Hauteur.AutoSize = true;
+            L_Hauteur.Location = new Point(3, 78);
+            L_Hauteur.Name = "L_Hauteur";
+            L_Hauteur.Size = new Size(50, 15);
+            L_Hauteur.TabIndex = 8;
+            L_Hauteur.Text = "Hauteur";
+            // 
+            // L_Largeur
+            // 
+            L_Largeur.AutoSize = true;
+            L_Largeur.Location = new Point(3, 122);
+            L_Largeur.Name = "L_Largeur";
+            L_Largeur.Size = new Size(47, 15);
+            L_Largeur.TabIndex = 9;
+            L_Largeur.Text = "Largeur";
             // 
             // FrFenetre
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(tabControl1);
-            Controls.Add(toolStrip1);
+            ClientSize = new Size(506, 343);
+            Controls.Add(L_Largeur);
+            Controls.Add(L_Hauteur);
+            Controls.Add(NUP_Largeur);
+            Controls.Add(NUP_Hauteur);
+            Controls.Add(L_Client);
+            Controls.Add(LB_Fenetre);
+            Controls.Add(CB_Client);
             Name = "FrFenetre";
             Text = "FrFenetre";
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
-            tabControl1.ResumeLayout(false);
+            Load += FrFenetre_Load;
+            ((System.ComponentModel.ISupportInitialize)NUP_Hauteur).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NUP_Largeur).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButton1;
-        private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
+        private ComboBox CB_Client;
+        private ListBox LB_Fenetre;
+        private Label L_Client;
+        private NumericUpDown NUP_Hauteur;
+        private NumericUpDown NUP_Largeur;
+        private Label L_Hauteur;
+        private Label L_Largeur;
     }
 }

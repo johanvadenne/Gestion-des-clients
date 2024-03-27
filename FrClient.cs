@@ -13,7 +13,7 @@ namespace Gestion_des_clients
 
         int IdNumClient = 0;
         // instancier la classe d'accès aux données
-        ClasseClient DBRideau = new ClasseClient();
+        ClasseClient DBClient = new ClasseClient();
 
         public FrClient()
         {
@@ -27,10 +27,10 @@ namespace Gestion_des_clients
 
         private void Btn_Supprimer_Click(object sender, EventArgs e)
         {
-            DBRideau.SQLDeleteClient((int)NUP_NumeroClient.Value);
+            DBClient.SQLDeleteClient((int)NUP_NumeroClient.Value);
 
             // Mettre à jour la listBox
-            LB_Client.DataSource = DBRideau.SQLClients();
+            LB_Client.DataSource = DBClient.SQLClients();
             LB_Client.DisplayMember = "NomPrenom";
             LB_Client.ValueMember = "NUMCLIENT";
             LB_Client.SelectedIndex = 0;
@@ -40,14 +40,14 @@ namespace Gestion_des_clients
         {
             try
             {
-                DBRideau.SQLInsertClient((int)NUP_NumeroClient.Value, TB_NomClient.Text, TB_PrenomClient.Text);
+                DBClient.SQLInsertClient((int)NUP_NumeroClient.Value, TB_NomClient.Text, TB_PrenomClient.Text);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
-            LB_Client.DataSource = DBRideau.SQLClients();
+            LB_Client.DataSource = DBClient.SQLClients();
             LB_Client.DisplayMember = "NomPrenom";
             LB_Client.ValueMember = "NUMCLIENT";
         }
@@ -58,10 +58,10 @@ namespace Gestion_des_clients
 
             // Modifier les données dans la table client
             int.TryParse(LB_Client.SelectedValue.ToString(), out IdNumClient);
-            DBRideau.SQLUpdateClient((int)NUP_NumeroClient.Value, TB_NomClient.Text, TB_PrenomClient.Text);
+            DBClient.SQLUpdateClient((int)NUP_NumeroClient.Value, TB_NomClient.Text, TB_PrenomClient.Text);
 
             // Mettre à jour la listBox
-            LB_Client.DataSource = DBRideau.SQLClients();
+            LB_Client.DataSource = DBClient.SQLClients();
             LB_Client.DisplayMember = "NomPrenom";
             LB_Client.ValueMember = "NUMCLIENT";
             LB_Client.SelectedIndex = 0;
@@ -71,13 +71,13 @@ namespace Gestion_des_clients
         {
             TB_NomClient.Text = "";
             TB_PrenomClient.Text = "";
-            IdNumClient = DBRideau.SQLMaxNumClient() + 1;
+            IdNumClient = DBClient.SQLMaxNumClient() + 1;
             NUP_NumeroClient.Text = IdNumClient.ToString();
         }
 
         private void FrClient_Load_1(object sender, EventArgs e)
         {
-            LB_Client.DataSource = DBRideau.SQLClients();
+            LB_Client.DataSource = DBClient.SQLClients();
             LB_Client.DisplayMember = "NomPrenom";
             LB_Client.ValueMember = "NUMCLIENT";
             LB_Client.SelectedIndex = 0;
@@ -87,7 +87,7 @@ namespace Gestion_des_clients
             if (IdNumClient > 0)
             {
                 DataTable table;
-                table = DBRideau.SQLSelectClient(IdNumClient);
+                table = DBClient.SQLSelectClient(IdNumClient);
                 TB_NomClient.Text = table.Rows[0][1].ToString();
                 TB_PrenomClient.Text = table.Rows[0][2].ToString();
             }
@@ -99,15 +99,11 @@ namespace Gestion_des_clients
             if (IdNumClient > 0)
             {
                 DataTable table;
-                table = DBRideau.SQLSelectClient(IdNumClient);
+                table = DBClient.SQLSelectClient(IdNumClient);
 
                 // Afficher détail du client sélectionné dans la liste
-                NUP_NumeroClient.Value = (int)DBRideau.numClient;
-                // TbNumClient.Text = table.Rows[0][0].ToString();
-                TB_NomClient.Text = DBRideau.nomClient;
-                // TbNomClient.Text = table.Rows[0][1].ToString();
-                TB_PrenomClient.Text = DBRideau.prenomClient;
-                // TbPrenomClient.Text = table.Rows[0][2].ToString();                
+                TB_NomClient.Text = DBClient.nomClient;
+                TB_PrenomClient.Text = DBClient.prenomClient;     
             }
         }
     }
