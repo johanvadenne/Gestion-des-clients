@@ -117,5 +117,13 @@ namespace Gestion_des_clients
             f.Text = "Fenêtre " + childFormNumber++;
             f.Show();
         }
+
+        private void gestionFenêtreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GestionFenetre f = new GestionFenetre();
+            f.MdiParent = this;
+            f.Text = "Fenêtre " + childFormNumber++;
+            f.Show();
+        }
     }
 }

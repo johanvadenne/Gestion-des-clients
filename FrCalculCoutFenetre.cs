@@ -104,7 +104,6 @@ namespace Gestion_des_clients
             {
                 e.KeyChar = ',';
             }
-
         }
     }
 }

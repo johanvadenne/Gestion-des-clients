@@ -31,14 +31,15 @@
             components = new System.ComponentModel.Container();
             menuStrip = new MenuStrip();
             clientToolStripMenuItem = new ToolStripMenuItem();
-            toolTip = new ToolTip(components);
             fenetreToolStripMenuItem = new ToolStripMenuItem();
+            toolTip = new ToolTip(components);
+            gestionFenêtreToolStripMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip
             // 
-            menuStrip.Items.AddRange(new ToolStripItem[] { clientToolStripMenuItem, fenetreToolStripMenuItem });
+            menuStrip.Items.AddRange(new ToolStripItem[] { clientToolStripMenuItem, fenetreToolStripMenuItem, gestionFenêtreToolStripMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Padding = new Padding(7, 2, 0, 2);
@@ -59,6 +60,13 @@
             fenetreToolStripMenuItem.Size = new Size(56, 20);
             fenetreToolStripMenuItem.Text = "fenetre";
             fenetreToolStripMenuItem.Click += fenetreToolStripMenuItem_Click;
+            // 
+            // gestionFenêtreToolStripMenuItem
+            // 
+            gestionFenêtreToolStripMenuItem.Name = "gestionFenêtreToolStripMenuItem";
+            gestionFenêtreToolStripMenuItem.Size = new Size(101, 20);
+            gestionFenêtreToolStripMenuItem.Text = "Gestion Fenêtre";
+            gestionFenêtreToolStripMenuItem.Click += gestionFenêtreToolStripMenuItem_Click;
             // 
             // MDIParent1
             // 
@@ -83,6 +91,7 @@
         private System.Windows.Forms.ToolTip toolTip;
         private ToolStripMenuItem clientToolStripMenuItem;
         private ToolStripMenuItem fenetreToolStripMenuItem;
+        private ToolStripMenuItem gestionFenêtreToolStripMenuItem;
     }
 }
 
